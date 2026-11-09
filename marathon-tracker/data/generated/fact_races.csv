@@ -1,0 +1,5 @@
+race_id,race_name,race_date,distance_km,goal_time_sec,finish_time_sec,overall_position,location,split_5k,split_10k,split_15k,split_20k,split_25k,split_30k,split_35k,split_40k
+1,Winter 10K,2026-02-08,10,3000,3115,611,Bristol,1539,1550,,,,,,
+2,Spring Half Marathon,2026-04-05,21.0975,6300,6137,429,Edinburgh,1454,1462,1452,1467,,,,
+3,Tune-up 15K,2026-05-10,15,4600,4532,523,Bristol,1527,1499,1549,,,,,
+4,City Marathon,2026-06-21,42.195,13800,13674,1240,Bristol,1612,1595,1663,1674,1659,1620,1646,1642

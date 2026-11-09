@@ -1,0 +1,6 @@
+data/raw/
+*.pbix.bak
+.venv/
+__pycache__/
+*.env
+.pbi/
