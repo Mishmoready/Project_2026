@@ -18,7 +18,9 @@ let
                   "max_hr","elevation_m","shoe_id","weather","temp_c","rpe"}, MissingField.UseNull),
     // SharePoint shows midnight-UTC dates shifted back by a day (e.g. 1/5/2026 4:00 PM).
     // Adding 12 hours then taking the date gives the intended day whatever the offset.
-    DateFix  = Table.AddColumn(Selected, "run_day", each Date.From(DateTime.From([run_date]) + #duration(0,12,0,0)), type date),
+    // Power BI receives SharePoint dates in UTC. Convert to NZ time (UTC+13) before taking the date, so
+    // both CSV-loaded rows (UTC midnight) and rows saved from the Canvas App (NZ midnight) land on the right day.
+    DateFix  = Table.AddColumn(Selected, "run_day", each Date.From(DateTimeZone.SwitchZone(DateTime.AddZone(DateTime.From([run_date]), 0), 13)), type date),
     PaceSec  = Table.AddColumn(DateFix, "pace_sec", each
                  let p = Text.Split(Text.From([avg_pace]), ":")
                  in if List.Count(p) = 2 then Number.FromText(p{0}) * 60 + Number.FromText(p{1}) else null, type number),
@@ -44,7 +46,7 @@ let
                  {"race_id","race_name","race_date","distance_km","goal_time_sec","finish_time_sec",
                   "overall_position","location","split_5k","split_10k","split_15k","split_20k",
                   "split_25k","split_30k","split_35k","split_40k"}, MissingField.UseNull),
-    DateFix  = Table.AddColumn(Selected, "race_day", each Date.From(DateTime.From([race_date]) + #duration(0,12,0,0)), type date),
+    DateFix  = Table.AddColumn(Selected, "race_day", each Date.From(DateTimeZone.SwitchZone(DateTime.AddZone(DateTime.From([race_date]), 0), 13)), type date),
     // Empty split cells were imported as 0; turn them back into blanks.
     NoZeros  = Table.ReplaceValue(DateFix, 0, null, Replacer.ReplaceValue,
                  {"split_5k","split_10k","split_15k","split_20k","split_25k","split_30k","split_35k","split_40k"}),
@@ -67,7 +69,7 @@ let
                  MissingField.Ignore),
     Selected = Table.SelectColumns(Renamed, {"shoe_id","model","purchase_date","retire_km"}, MissingField.UseNull),
     Typed    = Table.TransformColumnTypes(Selected, {{"shoe_id", Int64.Type}, {"retire_km", Int64.Type}}),
-    DateFix  = Table.AddColumn(Typed, "purchase_day", each Date.From(DateTime.From([purchase_date]) + #duration(0,12,0,0)), type date),
+    DateFix  = Table.AddColumn(Typed, "purchase_day", each Date.From(DateTimeZone.SwitchZone(DateTime.AddZone(DateTime.From([purchase_date]), 0), 13)), type date),
     Result   = Table.RemoveColumns(DateFix, {"purchase_date"})
 in
     Result
