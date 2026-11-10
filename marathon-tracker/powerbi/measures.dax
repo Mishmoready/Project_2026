@@ -1,0 +1,60 @@
+// ---------- Date table (Modeling > New table), then Mark as date table on [Date]
+Date =
+ADDCOLUMNS (
+    CALENDAR ( DATE ( 2026, 1, 1 ), DATE ( 2026, 12, 31 ) ),
+    "Year", YEAR ( [Date] ),
+    "Month No", MONTH ( [Date] ),
+    "Month", FORMAT ( [Date], "MMM" ),
+    "Week Start", [Date] - WEEKDAY ( [Date], 3 ),
+    "Day of Week", FORMAT ( [Date], "ddd" ),
+    "Is Weekend", WEEKDAY ( [Date], 2 ) > 5
+)
+
+// ---------- Plan table (Modeling > New table): planned weekly km, matches generate_data.py
+// Easier alternative: load data/generated/dim_plan.csv and relate dim_plan[week_start] to Date[Week Start].
+
+// ---------- Measures (create in a table called _Measures, or on Runs)
+Total KM = SUM ( Runs[distance_km] )
+
+Run Count = COUNTROWS ( Runs )
+
+Total Hours = DIVIDE ( SUM ( Runs[duration_min] ), 60 )
+
+Avg HR = AVERAGE ( Runs[avg_hr] )
+
+Avg Pace (min/km) =
+VAR secs = DIVIDE ( SUM ( Runs[duration_min] ) * 60, [Total KM] )
+RETURN FORMAT ( INT ( secs / 60 ), "0" ) & ":" & FORMAT ( MOD ( ROUND ( secs, 0 ), 60 ), "00" )
+
+Longest Run KM = MAX ( Runs[distance_km] )
+
+Weekly KM =
+CALCULATE ( [Total KM], ALLEXCEPT ( 'Date', 'Date'[Week Start] ) )
+
+Acute Load 7d =
+CALCULATE ( [Total KM], DATESINPERIOD ( 'Date'[Date], MAX ( 'Date'[Date] ), -7, DAY ) )
+
+Chronic Load 28d =
+DIVIDE ( CALCULATE ( [Total KM], DATESINPERIOD ( 'Date'[Date], MAX ( 'Date'[Date] ), -28, DAY ) ), 4 )
+
+ACWR = DIVIDE ( [Acute Load 7d], [Chronic Load 28d] )
+
+ACWR Status =
+SWITCH ( TRUE (),
+    ISBLANK ( [ACWR] ), "n/a",
+    [ACWR] > 1.5, "High risk",
+    [ACWR] >= 0.8, "Sweet spot",
+    "Undertrained" )
+
+Shoe Life Used % = DIVIDE ( [Total KM], MAX ( Shoes[retire_km] ) )
+
+Race Finish (h:mm:ss) =
+VAR s = MAX ( Races[finish_time_sec] )
+RETURN FORMAT ( INT ( s / 3600 ), "0" ) & ":" & FORMAT ( INT ( MOD ( s, 3600 ) / 60 ), "00" ) & ":" & FORMAT ( MOD ( s, 60 ), "00" )
+
+Goal vs Finish (sec) = MAX ( Races[finish_time_sec] ) - MAX ( Races[goal_time_sec] )
+
+Avg Sleep = AVERAGE ( Recovery[sleep_hours] )
+Avg HRV = AVERAGE ( Recovery[hrv_ms] )
+Avg Resting HR = AVERAGE ( Recovery[resting_hr] )
+Latest Weight = CALCULATE ( MAX ( Recovery[weight_kg] ), LASTDATE ( Recovery[date] ) )
