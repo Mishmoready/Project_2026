@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{f4354e99-fcad-4bce-88b5-292bd7f3955d}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cr28e_racename" select="1" icon="1" preview="1">
+        <row name="result" id="cr28e_raceid">
+          <cell name="cr28e_racename" width="300" />
+          <cell name="cr28e_raceidentifier" width="150" />
+          <cell name="cr28e_racedate" width="150" />
+          <cell name="cr28e_distancekilometers" width="150" />
+          <cell name="cr28e_goaltimeseconds" width="150" />
+          <cell name="cr28e_finishtimeseconds" width="150" />
+          <cell name="cr28e_overallposition" width="150" />
+          <cell name="cr28e_location" width="150" />
+          <cell name="cr28e_splittime5k" width="150" />
+          <cell name="cr28e_splittime10k" width="150" />
+          <cell name="cr28e_splittime15k" width="150" />
+          <cell name="cr28e_splittime20k" width="150" />
+          <cell name="cr28e_splittime25k" width="150" />
+          <cell name="cr28e_splittime30k" width="150" />
+          <cell name="cr28e_splittime35k" width="150" />
+          <cell name="cr28e_splittime40k" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cr28e_race">
+          <attribute name="cr28e_raceid" />
+          <attribute name="cr28e_racename" />
+          <attribute name="createdon" />
+          <order attribute="cr28e_racename" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="cr28e_raceidentifier" />
+          <attribute name="cr28e_racedate" />
+          <attribute name="cr28e_distancekilometers" />
+          <attribute name="cr28e_goaltimeseconds" />
+          <attribute name="cr28e_finishtimeseconds" />
+          <attribute name="cr28e_overallposition" />
+          <attribute name="cr28e_location" />
+          <attribute name="cr28e_splittime5k" />
+          <attribute name="cr28e_splittime10k" />
+          <attribute name="cr28e_splittime15k" />
+          <attribute name="cr28e_splittime20k" />
+          <attribute name="cr28e_splittime25k" />
+          <attribute name="cr28e_splittime30k" />
+          <attribute name="cr28e_splittime35k" />
+          <attribute name="cr28e_splittime40k" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Races" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{c5a9a47f-284f-424c-90d9-64f9f33979d4}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cr28e_racename" select="1" icon="1" preview="1">
+        <row name="result" id="cr28e_raceid">
+          <cell name="cr28e_racename" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cr28e_race">
+          <attribute name="cr28e_raceid" />
+          <attribute name="cr28e_racename" />
+          <attribute name="createdon" />
+          <order attribute="cr28e_racename" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Races" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

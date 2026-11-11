@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{045b2dea-43c2-4f2d-afcb-665d68dc2c68}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{FA1D8B5E-2653-4668-B61D-A373AE68EE8F}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{7423576A-BAD4-4B46-9C80-CE8EC7DC8AC1}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{40AA93E5-675E-4391-930B-560AB2E3D4B7}">
+                        <labels>
+                          <label description="race_name" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_racename" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cr28e_racename" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{94D37355-CF10-4C0A-B1F2-F646FB4126D1}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0e2925b5-aa5e-4c4c-bab6-fa91d31c1625}">
+                        <labels>
+                          <label description="race_id" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_raceidentifier" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_raceidentifier" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eb9a6114-16ff-4a57-96a8-a98d20b57cdb}">
+                        <labels>
+                          <label description="race_date" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_racedate" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="cr28e_racedate" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0be173d9-19c5-4c9c-8ae4-12404bbb9904}">
+                        <labels>
+                          <label description="distance_km" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_distancekilometers" classid="{c3efe0c3-0ec6-42be-8349-cbd9079dfd8e}" datafieldname="cr28e_distancekilometers" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6b71ebeb-bdb9-426f-b957-149ba6bd11e1}">
+                        <labels>
+                          <label description="goal_time_sec" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_goaltimeseconds" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_goaltimeseconds" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7d68255e-04e0-4907-9e15-80e0707da198}">
+                        <labels>
+                          <label description="finish_time_sec" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_finishtimeseconds" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_finishtimeseconds" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a957c1ec-a7e7-4b50-8033-a94548f34fd2}">
+                        <labels>
+                          <label description="overall_position" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_overallposition" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_overallposition" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{01cb5834-cbb6-4d18-99a8-8813b4f8cf7c}">
+                        <labels>
+                          <label description="location" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_location" classid="{4273edbd-ac1d-40d3-9fb2-095c621b552d}" datafieldname="cr28e_location" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b7aafd35-9af6-4148-bff7-1dc87371a262}">
+                        <labels>
+                          <label description="split_5k" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_splittime5k" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_splittime5k" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8d53c09e-3b0b-4067-b5bc-7d92d1080ce1}">
+                        <labels>
+                          <label description="split_10k" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_splittime10k" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_splittime10k" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{c18bd6f5-a9e9-4af8-a379-7aea2bc8c669}">
+                        <labels>
+                          <label description="split_15k" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_splittime15k" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_splittime15k" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8be5b61c-2d03-4fae-bdc6-07d2fe98eac6}">
+                        <labels>
+                          <label description="split_20k" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_splittime20k" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_splittime20k" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e3f6d777-0d99-466f-928b-aa609e4ead1b}">
+                        <labels>
+                          <label description="split_25k" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_splittime25k" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_splittime25k" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4061ac69-d8a0-4de9-bb0a-647706a0f05c}">
+                        <labels>
+                          <label description="split_30k" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_splittime30k" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_splittime30k" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f5cd7bf6-9a19-461a-a69d-74580a008986}">
+                        <labels>
+                          <label description="split_35k" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_splittime35k" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_splittime35k" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a17e3ae3-5fdc-4da5-8cf3-a33a5b15490a}">
+                        <labels>
+                          <label description="split_40k" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_splittime40k" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_splittime40k" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

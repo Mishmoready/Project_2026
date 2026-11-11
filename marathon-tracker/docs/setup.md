@@ -19,6 +19,11 @@
   Power Automate flows and Power BI. The Dataverse design stays documented in
   [data-model.md](data-model.md) so it can be added later if licensing is fixed.
 
+- 2026-11-10: Started the Power Apps Premium 30-day trial from the Microsoft 365 admin center Marketplace,
+  then `pac admin create --type Developer` succeeded. Trial-type environments were still refused.
+  Dataverse environment: `marathon-dev`, https://marathondev.crm6.dynamics.com/ (Developer type).
+  Canvas App + Power BI keep using SharePoint; Dataverse is for the model-driven app and Power Pages.
+
 ## SharePoint lists (create from the CSVs in data/generated)
 | List | Source CSV |
 |---|---|

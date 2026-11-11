@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{a8a6817b-c597-4081-aa00-33fe609178a8}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cr28e_averagepace" select="1" icon="1" preview="1">
+        <row name="result" id="cr28e_runrecordid">
+          <cell name="cr28e_averagepace" width="300" />
+          <cell name="cr28e_runidentifier" width="150" />
+          <cell name="cr28e_rundate" width="150" />
+          <cell name="cr28e_runtype" width="150" />
+          <cell name="cr28e_distancekilometers" width="150" />
+          <cell name="cr28e_durationminutes" width="150" />
+          <cell name="cr28e_averageheartrate" width="150" />
+          <cell name="cr28e_maximumheartrate" width="150" />
+          <cell name="cr28e_elevationgainmeters" width="150" />
+          <cell name="cr28e_shoeidentifier" width="150" />
+          <cell name="cr28e_weathercondition" width="150" />
+          <cell name="cr28e_temperaturecelsius" width="150" />
+          <cell name="cr28e_rateofperceivedexertion" width="150" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cr28e_runrecord">
+          <attribute name="cr28e_runrecordid" />
+          <attribute name="cr28e_averagepace" />
+          <attribute name="createdon" />
+          <order attribute="cr28e_averagepace" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="cr28e_runidentifier" />
+          <attribute name="cr28e_rundate" />
+          <attribute name="cr28e_runtype" />
+          <attribute name="cr28e_distancekilometers" />
+          <attribute name="cr28e_durationminutes" />
+          <attribute name="cr28e_averageheartrate" />
+          <attribute name="cr28e_maximumheartrate" />
+          <attribute name="cr28e_elevationgainmeters" />
+          <attribute name="cr28e_shoeidentifier" />
+          <attribute name="cr28e_weathercondition" />
+          <attribute name="cr28e_temperaturecelsius" />
+          <attribute name="cr28e_rateofperceivedexertion" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Run Record" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

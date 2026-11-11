@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{c66d3774-487a-4859-b1a7-cdfa8e01ad6d}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{8D162284-43A2-4B51-B543-6D6750080F1A}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{B7244BF0-C29E-41F5-BA77-4D59179ECA44}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{8439AB12-47D9-4730-A17B-57539B896B8D}">
+                        <labels>
+                          <label description="model" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_modelname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cr28e_modelname" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{A0F1A2DB-0117-4618-8E3B-379B1C15C4BE}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{bbd4fa47-3db5-4b34-8538-fed147f1cd03}">
+                        <labels>
+                          <label description="shoe_id" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_shoeid1" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_shoeid1" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1831a962-b689-4cc7-aeea-7071140a0811}">
+                        <labels>
+                          <label description="purchase_date" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_purchasedate" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="cr28e_purchasedate" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{da93aa96-9fb7-4c98-86f7-72cc2100569a}">
+                        <labels>
+                          <label description="retire_km" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_retirementkilometers" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_retirementkilometers" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{d22167cc-eec6-46ba-9c63-4dc08d890a09}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab verticallayout="true" id="{303c3176-7bbf-4e09-89e9-4ad1b30fc097}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{46a5033a-9439-4b75-b280-69e91fbec769}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{27b1c66e-3c71-4cf7-9124-0da90550d5a4}">
+                        <labels>
+                          <label description="avg_pace" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_averagepace" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cr28e_averagepace" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8234fc26-16f5-481a-8963-67bfc5dffc32}">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3172afec-93d1-40ec-a03f-a6a2590e724d}">
+                        <labels>
+                          <label description="run_id" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_runidentifier" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_runidentifier" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a51454ea-4bf0-4637-93c7-d21ecd8d5c91}">
+                        <labels>
+                          <label description="run_date" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_rundate" classid="{5b773807-9fb2-42db-97c3-7a91eff8adff}" datafieldname="cr28e_rundate" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{25c9a46f-f3b6-427b-9cf7-e1184b809e7f}">
+                        <labels>
+                          <label description="run_type" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_runtype" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="cr28e_runtype" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{43d095f2-bea3-4aca-a7db-38001ee38a4d}">
+                        <labels>
+                          <label description="distance_km" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_distancekilometers" classid="{c3efe0c3-0ec6-42be-8349-cbd9079dfd8e}" datafieldname="cr28e_distancekilometers" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eaa7bd62-945c-4a25-9c22-30cf1c9a5004}">
+                        <labels>
+                          <label description="duration_min" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_durationminutes" classid="{c3efe0c3-0ec6-42be-8349-cbd9079dfd8e}" datafieldname="cr28e_durationminutes" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{edf56a46-67c2-4f79-8cf0-ff581b6eddaf}">
+                        <labels>
+                          <label description="avg_hr" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_averageheartrate" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_averageheartrate" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{af668501-b69a-40e3-a772-cf6132e62b16}">
+                        <labels>
+                          <label description="max_hr" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_maximumheartrate" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_maximumheartrate" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ceb063f2-e831-4c67-b261-d24560bf9c79}">
+                        <labels>
+                          <label description="elevation_m" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_elevationgainmeters" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_elevationgainmeters" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b8cbe662-e2f8-4315-9341-8e6e53a3858c}">
+                        <labels>
+                          <label description="shoe_id" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_shoeidentifier" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_shoeidentifier" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4d493671-104b-4ebd-bc7c-4aa563874286}">
+                        <labels>
+                          <label description="weather" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_weathercondition" classid="{3ef39988-22bb-4f0b-bbbe-64b5a3748aee}" datafieldname="cr28e_weathercondition" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{e176308c-7a63-41ae-bff4-b4ac22da556e}">
+                        <labels>
+                          <label description="temp_c" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_temperaturecelsius" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_temperaturecelsius" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2d3aedd2-8eee-4917-8094-653fd8ccd20c}">
+                        <labels>
+                          <label description="rpe" languagecode="1033" />
+                        </labels>
+                        <control id="cr28e_rateofperceivedexertion" classid="{c6d124ca-7eda-4a60-aea9-7fb8d318b68f}" datafieldname="cr28e_rateofperceivedexertion" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>
