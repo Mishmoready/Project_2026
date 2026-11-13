@@ -3,19 +3,25 @@
   <EntityRelationship Name="business_unit_cr28e_race" />
   <EntityRelationship Name="business_unit_cr28e_runrecord" />
   <EntityRelationship Name="business_unit_cr28e_shoe" />
+  <EntityRelationship Name="business_unit_cr28e_shoealert" />
   <EntityRelationship Name="lk_cr28e_race_createdby" />
   <EntityRelationship Name="lk_cr28e_race_modifiedby" />
   <EntityRelationship Name="lk_cr28e_runrecord_createdby" />
   <EntityRelationship Name="lk_cr28e_runrecord_modifiedby" />
   <EntityRelationship Name="lk_cr28e_shoe_createdby" />
   <EntityRelationship Name="lk_cr28e_shoe_modifiedby" />
+  <EntityRelationship Name="lk_cr28e_shoealert_createdby" />
+  <EntityRelationship Name="lk_cr28e_shoealert_modifiedby" />
   <EntityRelationship Name="owner_cr28e_race" />
   <EntityRelationship Name="owner_cr28e_runrecord" />
   <EntityRelationship Name="owner_cr28e_shoe" />
+  <EntityRelationship Name="owner_cr28e_shoealert" />
   <EntityRelationship Name="team_cr28e_race" />
   <EntityRelationship Name="team_cr28e_runrecord" />
   <EntityRelationship Name="team_cr28e_shoe" />
+  <EntityRelationship Name="team_cr28e_shoealert" />
   <EntityRelationship Name="user_cr28e_race" />
   <EntityRelationship Name="user_cr28e_runrecord" />
   <EntityRelationship Name="user_cr28e_shoe" />
+  <EntityRelationship Name="user_cr28e_shoealert" />
 </EntityRelationships>

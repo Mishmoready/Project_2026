@@ -10,7 +10,7 @@ Power Apps, Dataverse, SharePoint, Power Automate and Power BI, with the solutio
 |---|---|
 | **Log a run** | Canvas App (phone) writes to a SharePoint list |
 | **Manage runs, shoes and races** | Model-driven app on Dataverse |
-| **Get warned before shoes wear out** | Power Automate flow: when a run is saved, total the shoe's km and alert at 80% of its life |
+| **Get warned before shoes wear out** | Power Automate flow: when a run is saved, total the shoe's km and record an alert at 80% of its life |
 | **See training progress** | Power BI report: weekly distance, totals, heart rate |
 
 ![Power BI overview](docs/screenshots/overview.png)
@@ -22,7 +22,7 @@ flowchart LR
     CSV --> DV[(Dataverse tables)]
     CA[Canvas App] <--> SP
     MDA[Model-driven app] <--> DV
-    DV --> FLOW[Shoe Wear Alert flow] --> ALERT[Alert to runner]
+    DV --> FLOW[Shoe Wear Alert flow] --> ALERT[(Shoe Alerts table)]
     SP --> PBI[Power Query + DAX model] --> RPT[Power BI report]
     DV -. pac solution export .-> GIT[(This repo)]
 ```
@@ -55,9 +55,9 @@ Design decisions, trade-offs and the enterprise-scale target design: [docs/archi
 2. **Get shoe:** look up the shoe used in that run.
 3. **Sum shoe km:** one FetchXML aggregate, summed by Dataverse (no loop over runs).
 4. **Percent used:** total km / retirement km.
-5. **Condition:** at 80% or more, notify the runner. The flow informs; a person decides.
+5. **Condition:** at 80% or more, add a row to the Shoe Alerts table. The flow informs; a person decides.
 
-Tested both ways: shoe 2 at 91% takes the alert path; shoe 1 at 24% does not.
+Tested both ways: shoe 2 at 92.3% (553.82 of 600 km) wrote an alert row; shoe 1 at 24% did not.
 
 ## Repo layout
 ```

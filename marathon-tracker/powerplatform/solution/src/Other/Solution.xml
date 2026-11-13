@@ -6,7 +6,7 @@
       <LocalizedName description="Marathon Tracker" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.0.0</Version>
+    <Version>1.0.0.1</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>Cr2b15d</UniqueName>
@@ -81,6 +81,8 @@
       <RootComponent type="1" schemaName="cr28e_race" behavior="0" />
       <RootComponent type="1" schemaName="cr28e_runrecord" behavior="0" />
       <RootComponent type="1" schemaName="cr28e_shoe" behavior="0" />
+      <RootComponent type="1" schemaName="cr28e_shoealert" behavior="0" />
+      <RootComponent type="29" id="{1e7c5b17-e4de-f111-84e8-6045bde69cc4}" behavior="0" />
       <RootComponent type="80" schemaName="cr28e_MarathonTrainingHub" behavior="0" />
     </RootComponents>
     <MissingDependencies>

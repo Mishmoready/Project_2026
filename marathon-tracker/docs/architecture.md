@@ -12,7 +12,7 @@ flowchart LR
     CSV --> DV[(Dataverse<br/>Runs, Shoes, Races)]
     CA[Canvas App<br/>Marathon Run Logger] <--> SP
     MDA[Model-driven app<br/>Marathon Training Hub] <--> DV
-    DV --> FLOW[Power Automate<br/>Shoe Wear Alert] --> MAIL[Email to runner]
+    DV --> FLOW[Power Automate<br/>Shoe Wear Alert] --> ALERT[(Shoe Alerts table)]
     SP --> PQ[Power Query<br/>clean + type] --> SM[Power BI semantic model<br/>star schema + DAX] --> RPT[Overview report]
     DV -. solution export .-> GIT[(Git repo<br/>unpacked solution)]
 ```
@@ -49,8 +49,10 @@ Details: [data-model.md](data-model.md)
 - The shoe total is a FetchXML `sum` evaluated by Dataverse, so the flow makes one call instead of
   looping over every run. Fewer API calls, faster, and inside consumption limits.
 
-### Decision 3: The flow notifies, a person decides
-- The alert tells the runner a shoe is at 80% of its life. It does not order anything.
+### Decision 3: The flow records an alert, a person decides
+- The flow writes a row to a Shoe Alerts table when a shoe reaches 80% of its life. It does not order anything.
+- A table was chosen over email: the Mail connector is restricted on new tenants and Outlook was unreachable
+  on the build day. The alert history is visible in the app, and an email or Teams step can follow it later.
 - Known limitation: every run after 80% alerts again. Improvement: an `alert_sent` flag on Shoes.
 
 ### Decision 4: Time zones handled at each boundary
@@ -65,7 +67,7 @@ Details: [data-model.md](data-model.md)
 | 15 rows rejected | Choice column options were inferred from the preview (no Intervals, Race) | Add the options, re-import those rows |
 | Dates one day early | UTC storage shown in a US time zone | Set user time zone; convert in Power Query |
 | Flow step returned empty | Typo in a column logical name (no error, just null) | Copy logical names from the table definition; inspect each step's output |
-| Mail connector refused | Restricted on new tenants | Use Office 365 Outlook |
+| Mail connector refused, Outlook timed out | Restricted on new tenants; Outlook unreachable | Write alerts to a Dataverse table instead |
 | `pac` sign-in blocked | Security defaults block device-code flow | Interactive sign-in |
 
 ## 6. Target architecture at enterprise scale (design, not built)

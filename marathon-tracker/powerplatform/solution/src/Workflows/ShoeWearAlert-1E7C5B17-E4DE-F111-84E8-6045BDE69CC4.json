@@ -1,0 +1,185 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "cr28e_sharedcommondataserviceforapps_948a7"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "3660d0c9-364b-4f2d-bb74-341b8d131274"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 1,
+              "subscriptionRequest/entityname": "cr28e_runrecord",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Get_shoe": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "330013df-da0b-407b-971b-5ceec1be4b8b"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "cr28e_shoes",
+              "$filter": "cr28e_shoeid1 eq @{triggerOutputs()?['body/cr28e_shoeidentifier']}",
+              "$top": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Sum_shoe_km": {
+          "runAfter": {
+            "Get_shoe": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b1581e30-1198-4d40-a4ef-2673c0fe683a"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "cr28e_runrecords",
+              "fetchXml": "<fetch aggregate=\"true\">\n  <entity name=\"cr28e_runrecord\">\n    <attribute name=\"cr28e_distancekilometers\" alias=\"totalkm\" aggregate=\"sum\" />\n    <filter>\n      <condition attribute=\"cr28e_shoeidentifier\" operator=\"eq\" value=\"@{triggerOutputs()?['body/cr28e_shoeidentifier']}\" />\n    </filter>\n  </entity>\n</fetch>\n"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Shoe_model": {
+          "runAfter": {
+            "Sum_shoe_km": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "68a21785-222c-46a2-a272-2aa07bbe0ec6"
+          },
+          "type": "Compose",
+          "inputs": "@first(outputs('Get_shoe')?['body/value'])?['cr28e_modelname']"
+        },
+        "Retire_km": {
+          "runAfter": {
+            "Shoe_model": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "86ab27bd-ab4c-4c1e-8b72-6d2b5f227f4b"
+          },
+          "type": "Compose",
+          "inputs": "@first(outputs('Get_shoe')?['body/value'])?['cr28e_retirementkilometers']"
+        },
+        "Total_km": {
+          "runAfter": {
+            "Retire_km": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d8181830-59b3-4f71-94e2-2617c5320a28"
+          },
+          "type": "Compose",
+          "inputs": "@first(outputs('Sum_shoe_km')?['body/value'])?['totalkm']"
+        },
+        "Percent_used": {
+          "runAfter": {
+            "Total_km": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2d587a96-5acd-459a-838e-25fe4160a796"
+          },
+          "type": "Compose",
+          "inputs": "@div(mul(float(outputs('Total_km')), 100), float(outputs('Retire_km')))"
+        },
+        "Condition": {
+          "actions": {
+            "Add_a_new_row": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "54d8a799-93f9-4bae-b68b-930761f6a32b"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "CreateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "cr28e_shoealerts",
+                  "item/cr28e_alert": "Time to replace your @{outputs('Shoe_model')}  ",
+                  "item/cr28e_percentused": "@outputs('Percent_used')",
+                  "item/cr28e_totalkm": "@outputs('Total_km')"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Percent_used": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "greaterOrEquals": [
+              "@outputs('Percent_used')",
+              80
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "bcf73b60-cd26-4f0c-bc4c-5c5f2940c351"
+          },
+          "type": "If"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
