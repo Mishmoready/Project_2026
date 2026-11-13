@@ -1,11 +1,11 @@
 // Power Query (M) for the Marathon Tracker model.
 // In Power BI Desktop: Home > Transform data > New Source > Blank Query > Advanced Editor,
 // paste ONE query at a time, and rename the query to the name in the header comment.
-// Site URL: https://pulpente.sharepoint.com
+// Site URL: https://<your-tenant>.sharepoint.com  (replace <your-tenant> with your Microsoft 365 tenant name in every query below)
 
 // ============================================================ Runs
 let
-    Source   = SharePoint.Tables("https://pulpente.sharepoint.com", [ApiVersion = 15]),
+    Source   = SharePoint.Tables("https://<your-tenant>.sharepoint.com", [ApiVersion = 15]),
     Items    = Source{[Title = "Runs"]}[Items],
     // SharePoint exposes CSV-imported columns as field_1, field_2, ... in CSV order.
     Renamed  = Table.RenameColumns(Items,
@@ -34,7 +34,7 @@ in
 
 // ============================================================ Races
 let
-    Source   = SharePoint.Tables("https://pulpente.sharepoint.com", [ApiVersion = 15]),
+    Source   = SharePoint.Tables("https://<your-tenant>.sharepoint.com", [ApiVersion = 15]),
     Items    = Source{[Title = "Races"]}[Items],
     Renamed  = Table.RenameColumns(Items,
                  {{"Title","race_id"},{"field_1","race_name"},{"field_2","race_date"},{"field_3","distance_km"},
@@ -62,7 +62,7 @@ in
 
 // ============================================================ Shoes
 let
-    Source   = SharePoint.Tables("https://pulpente.sharepoint.com", [ApiVersion = 15]),
+    Source   = SharePoint.Tables("https://<your-tenant>.sharepoint.com", [ApiVersion = 15]),
     Items    = Source{[Title = "Shoes"]}[Items],
     Renamed  = Table.RenameColumns(Items,
                  {{"Title","shoe_id"},{"field_1","model"},{"field_2","purchase_date"},{"field_3","retire_km"}},
@@ -91,7 +91,7 @@ in
 // ============================================================ Recovery  (no SharePoint list yet: load the CSV)
 // Change the path if you moved the repo.
 let
-    Source  = Csv.Document(File.Contents("C:\Users\Mo_z_\Desktop\Projects_2026\quizGame\marathon-tracker\data\generated\fact_recovery.csv"),
+    Source  = Csv.Document(File.Contents("C:\path\to\marathon-tracker\data\generated\fact_recovery.csv"),
                 [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
     Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
     Typed   = Table.TransformColumnTypes(Headers,

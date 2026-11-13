@@ -7,7 +7,7 @@
 - Power Platform CLI (`pac`), via the VS Code "Power Platform Tools" extension
 
 ## Tenant
-- Microsoft 365 E3 trial, tenant `pulpente.onmicrosoft.com`
+- Microsoft 365 E3 trial, tenant `<your-tenant>.onmicrosoft.com`
 - MFA registered (security defaults on). Note: security defaults block device-code sign-in,
   so `pac auth create` must be run WITHOUT `--deviceCode` (interactive browser dialog).
 
@@ -21,7 +21,7 @@
 
 - 2026-11-10: Started the Power Apps Premium 30-day trial from the Microsoft 365 admin center Marketplace,
   then `pac admin create --type Developer` succeeded. Trial-type environments were still refused.
-  Dataverse environment: `marathon-dev`, https://marathondev.crm6.dynamics.com/ (Developer type).
+  Dataverse environment: `marathon-dev`, https://<your-env>.crm6.dynamics.com/ (Developer type).
   Canvas App + Power BI keep using SharePoint; Dataverse is for the model-driven app and Power Pages.
 
 ## SharePoint lists (create from the CSVs in data/generated)

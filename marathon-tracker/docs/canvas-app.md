@@ -1,7 +1,7 @@
 # Canvas App: Run Logger
 
 Goal: log a new run into the SharePoint **Runs** list, browse recent runs, and see this week's km.
-Data source: SharePoint site `https://pulpente.sharepoint.com`, list **Runs**.
+Data source: SharePoint site `https://<your-tenant>.sharepoint.com`, list **Runs**.
 
 > Column names: Power Apps normally shows the list's display names (run_date, run_type, distance_km ...).
 > If a name below is not recognised, type `Runs.` in the formula bar and pick the column from the suggestions.
@@ -9,7 +9,7 @@ Data source: SharePoint site `https://pulpente.sharepoint.com`, list **Runs**.
 ## 1. Create the app
 1. https://make.powerapps.com > **Create** > **Blank app** > **Blank canvas app**. Name: `Marathon Run Logger`. Format: **Phone**.
 2. Left menu **Data** (cylinder icon) > **Add data** > search `SharePoint` > choose the connection,
-   paste the site URL `https://pulpente.sharepoint.com`, tick **Runs** and **Shoes**, and click **Connect**.
+   paste the site URL `https://<your-tenant>.sharepoint.com`, tick **Runs** and **Shoes**, and click **Connect**.
 
 If the maker portal asks for a licence or an environment, tell me the message. A SharePoint-only app should
 work with the Microsoft 365 licence (standard connector).

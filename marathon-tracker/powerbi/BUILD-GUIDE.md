@@ -1,12 +1,12 @@
 # Power BI build guide
 
-Data comes from the SharePoint lists Runs, Races and Shoes (site `https://pulpente.sharepoint.com`),
+Data comes from the SharePoint lists Runs, Races and Shoes (site `https://<your-tenant>.sharepoint.com`),
 plus the Recovery CSV. Files here: [queries.pq](queries.pq) and [measures.dax](measures.dax).
 
 ## 1. Load the data (about 10 minutes)
 1. Power BI Desktop > Home > **Transform data** > New Source > **Blank Query**.
 2. Open **Advanced Editor**, paste the **Runs** query from queries.pq, and click Done.
-3. First time only: sign in with the work account (`MosesCook@pulpente.onmicrosoft.com`), choose
+3. First time only: sign in with the work account (`<you>@<your-tenant>.onmicrosoft.com`), choose
    **Organizational account**, and click Connect.
 4. Rename the query to `Runs`. Repeat for `Races`, `Shoes`, `RaceSplits` (after Races) and `Recovery`.
 5. **Close & Apply**.
